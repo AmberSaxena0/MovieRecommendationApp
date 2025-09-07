@@ -2,7 +2,6 @@ import { icons } from "@/constants/icons";
 import { fetchMovieDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { router, useLocalSearchParams } from "expo-router";
-import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 const MovieDetails = () => {
@@ -12,7 +11,6 @@ const MovieDetails = () => {
     loading: movie_loading,
     error: movie_error,
   } = useFetch(() => fetchMovieDetails(id as string));
-  console.log(movie_details, "movie_details");
   interface MovieInfoProps {
     label: string;
     value?: number | null | string;
@@ -24,9 +22,7 @@ const MovieDetails = () => {
       <Text className="text-light-100 font-bold text-sm mt-2">{value}</Text>
     </View>
   );
-  {
-    console.log(movie_details);
-  }
+
   return (
     <View className="bg-primary flex-1">
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
